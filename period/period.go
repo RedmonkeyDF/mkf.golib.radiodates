@@ -77,9 +77,11 @@ func MNPeriodDecode(p Periodint) (Periodint, Periodint, error) {
 	return yr, mn, nil
 }
 
-func MNPeriodCurrent() (Periodint, error) {
+func MNPeriodCurrent() Periodint {
 
-	return MNPeriodDT(time.Now())
+	per, _ := MNPeriodDT(time.Now())
+
+	return per
 }
 
 func MNPeriodstrYRMN(ayr, amn Periodint) (string, error) {
@@ -178,9 +180,11 @@ func WKPeriodstrDT(t time.Time) (string, error) {
 	return WKPeriodstrYRWK(Periodint(ayr), Periodint(awk))
 }
 
-func WKPeriodCurrent() (Periodint, error) {
+func WKPeriodCurrent() Periodint {
 
-	return WKPeriodDT(time.Now())
+	per, _ := WKPeriodDT(time.Now())
+
+	return per
 }
 
 func QTRPeriodValid(p Periodint) bool {
